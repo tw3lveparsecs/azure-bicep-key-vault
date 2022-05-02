@@ -9,11 +9,13 @@ You can optionally configure network and firewall rules, diagnostics and resourc
 
 ```bicep
 param deploymentName string = 'keyvault${utcNow()}'
+param location string = resourceGroup().location
 
 module keyvault 'keyvault.bicep' = {
   name: deploymentName
   params: {
     keyVaultName: 'myKeyVault'
+    location: location
     resourcelock: 'CanNotDelete'
     enableDiagnostics: true    
     diagnosticLogAnalyticsWorkspaceId: 'myLogAnalyticsWorkspaceResourceId'
@@ -25,11 +27,13 @@ module keyvault 'keyvault.bicep' = {
 
 ```bicep
 param deploymentName string = 'keyvault${utcNow()}'
+param location string = resourceGroup().location
 
 module keyvault 'keyvault.bicep' = {
   name: deploymentName
   params: {
     keyVaultName: 'myKeyVault'
+    location: location
     networkAcls: {
       defaultAction: 'Deny'
       bypass: 'None'

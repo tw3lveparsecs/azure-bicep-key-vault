@@ -2,7 +2,7 @@
 param keyVaultName string
 
 @description('Location of the resource.')
-param location string = resourceGroup().location
+param location string
 
 @description('Object containing resource tags.')
 param tags object = {}
